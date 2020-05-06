@@ -1,0 +1,62 @@
+<!--
+  I would like to thank Mark de Jong for her workshop 'Snowfall' for Wallpaper Engine on Steam.
+  She provided me with the usage of falling snow, which was originally created by Josh McCarty.
+  I simply change the background and some parameters.
+-->
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Your Name with Snowfall</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      body{
+        background-image: url("your_name.jpg");
+        background-size: cover;
+      }
+      main {
+        margin: 0 auto;
+        max-width: 100%;
+      }
+
+    </style>
+	
+    <script src="jquery-1.12.4.min.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+    <script src="jquery.flurry.js"></script>
+    <script>
+      $( document ).ready( function() {
+        var desktop_height = $(document).height();
+        $('body').flurry({
+          character: "❄",
+          color: "white",
+          height: desktop_height,
+          frequency: 200,
+          speed: 20000,
+          small: 6,
+          large: 24,
+          wind: 0,
+          windVariance: 100,
+          rotation: 90,
+          rotationVariance: 180
+        });
+
+        $('.toggle-snow').on('click', function(event) {
+
+          event.preventDefault();
+
+          try {
+            $('body').flurry('destroy');
+          }
+          catch(err) {
+            $('body').flurry();
+          }
+        });
+      });
+    </script>
+  </head>
+
+
+</html>
